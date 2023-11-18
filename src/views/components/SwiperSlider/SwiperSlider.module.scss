@@ -1,0 +1,11 @@
+@import '../../../variables.scss';
+
+.slider__container {
+  position: relative;
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+
+  h1 {
+    margin-bottom: 20px;
+  }
+}

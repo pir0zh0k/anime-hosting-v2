@@ -1,0 +1,59 @@
+@import '../../../variables.scss';
+
+.header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  color: $slate-200;
+  background: $slate-900;
+
+  .header_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .logo {
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .search {
+    width: 350px;
+  }
+
+  .menu {
+    a:not(:last-child) {
+      margin-right: 20px;
+    }
+
+    a:hover {
+      border-bottom: 1px solid $slate-200;
+    }
+  }
+}
+
+.footer {
+  background: $slate-900;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  color: $slate-200;
+
+  .footer_content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  span {
+    width: 100%;
+    text-align: center;
+  }
+
+  span:not(:last-child) {
+    border-right: 1px solid $slate-200;
+  }
+}
