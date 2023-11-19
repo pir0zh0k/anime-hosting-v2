@@ -3,7 +3,7 @@ import { useGetUpdatesQuery } from '../../../store';
 import styles from './Anime.module.scss';
 import { OneAnimeInterface } from '../../../helpers/interfaces';
 import Preloader from '../../components/Preloader/Preloader';
-import { Key, ReactNode } from 'react';
+
 
 const Anime = () => {
   const { page } = useParams();
