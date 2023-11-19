@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useGetUpdatesQuery } from '../../../store';
 import styles from './Serials.module.scss';
 import { OneAnimeInterface } from '../../../helpers/interfaces';
+import Preloader from '../../components/Preloader/Preloader';
 
 const Serials = () => {
   const { data, isLoading } = useGetUpdatesQuery({
@@ -9,7 +10,7 @@ const Serials = () => {
     page: 1,
   });
 
-  if (isLoading) return <div>Is Loading</div>;
+  if (isLoading) return <Preloader/>;
 
   return (
     <div className={`container ${styles.serials__container}`}>

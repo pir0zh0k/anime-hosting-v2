@@ -3,6 +3,7 @@ import { useGetOneAnimeQuery } from '../../../store';
 import styles from './OneAnime.module.scss';
 import ReactPlayer from 'react-player';
 import { PlayerList } from '../../../helpers/interfaces';
+import Preloader from '../../components/Preloader/Preloader';
 
 const OneAnime = () => {
   const { code, episode } = useParams();
@@ -11,7 +12,7 @@ const OneAnime = () => {
   console.log(data);
 
   if (isLoading) {
-    return <div>Is Loading</div>;
+    return <Preloader />;
   }
 
   return (
