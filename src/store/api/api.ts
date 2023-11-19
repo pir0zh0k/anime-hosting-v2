@@ -7,9 +7,17 @@ export const animeApi = createApi({
   endpoints: build => ({
     getChanges: build.query({
       query: (settings: QuerySettingsType) =>
-        `/title/changes?items_per_page=${settings.items_per_page}&page=${settings.page}`,
+        `/title/changes?items_per_page=${settings.items_per_page}&page=${settings.page}&playlist_type=array`,
+    }),
+    getUpdates: build.query({
+      query: (settings: QuerySettingsType) =>
+        `/title/updates?items_per_page=${settings.items_per_page}&page=${settings.page}&playlist_type=array`,
+    }),
+    getOneAnime: build.query({
+      query: (code: string) => `/title?code=${code}&playlist_type=array`,
     }),
   }),
 });
 
-export const { useGetChangesQuery } = animeApi;
+export const { useGetChangesQuery, useGetUpdatesQuery, useGetOneAnimeQuery } =
+  animeApi;

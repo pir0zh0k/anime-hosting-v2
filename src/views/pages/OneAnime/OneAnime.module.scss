@@ -1,0 +1,52 @@
+@import '../../../variables.scss';
+
+.player_container {
+  h1 {
+    margin-top: 20px;
+  }
+}
+.info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+
+  p {
+    margin-left: 30px;
+    font-size: 18px;
+  }
+}
+.player_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  width: 100%;
+  h1 {
+    margin-bottom: 20px;
+  }
+}
+
+.pagination {
+  margin: 10px 0;
+  padding: 20px;
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+
+  a {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $slate-900;
+    border-radius: 5px;
+    transition: background 0.1s ease;
+
+    &:hover {
+      background: $slate-950;
+    }
+  }
+}

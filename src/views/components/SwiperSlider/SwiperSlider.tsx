@@ -4,6 +4,7 @@ import { SliderUpdates } from '../../../helpers/interfaces';
 import styles from './SwiperSlider.module.scss';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { OneAnimeType } from '../../../helpers/types';
 
 const SwiperSlider = ({ updatesList }: SliderUpdates) => {
   return (

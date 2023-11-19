@@ -1,0 +1,31 @@
+@import '../../../variables.scss';
+
+.serials__container {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    transition: background 0.1s ease;
+    &:hover {
+      cursor: pointer;
+      background: $slate-700;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    p {
+      font-size: 16px;
+      text-align: center;
+      margin-top: 10px;
+    }
+  }
+}
