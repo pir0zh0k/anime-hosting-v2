@@ -25,7 +25,7 @@ const Layout = () => {
             />
           </div>
           <div className={styles.menu}>
-            <Link to="/anime">Аниме</Link>
+            <Link to="/anime/1">Аниме</Link>
             <Link to="/anounces">Анонсы</Link>
           </div>
         </div>
@@ -40,10 +40,7 @@ const Layout = () => {
               <Link to="/">AniQuick</Link>
             </span>
             <span>
-              <Link to="/serials">Сериалы</Link>
-            </span>
-            <span>
-              <Link to="/films">Фильмы</Link>
+              <Link to="/anime/1">Аниме</Link>
             </span>
             <span>
               <Link to="/anounces">Анонсы</Link>

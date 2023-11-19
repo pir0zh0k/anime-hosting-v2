@@ -20,7 +20,7 @@ const SwiperSlider = ({ updatesList }: SliderUpdates) => {
         {updatesList &&
           updatesList.map(item => (
             <SwiperSlide key={item.id}>
-              <Link to={`/anime/${item.code}/1`}>
+              <Link to={`/${item.code}/1`}>
                 <img
                   src={`https://static-libria.weekstorm.one/${item.posters.small.url}`}
                   alt=""

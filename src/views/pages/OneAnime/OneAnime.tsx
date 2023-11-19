@@ -31,27 +31,37 @@ const OneAnime = () => {
             ''
           )}
           {data && data.team.decor.length > 0 ? (
-            <p className={styles.team_info}>Оформление: {data.team.decor.join()}</p>
+            <p className={styles.team_info}>
+              Оформление: {data.team.decor.join()}
+            </p>
           ) : (
             ''
           )}
           {data && data.team.editing.length > 0 ? (
-            <p className={styles.team_info}>Субтитры: {data.team.editing.join()}</p>
+            <p className={styles.team_info}>
+              Субтитры: {data.team.editing.join()}
+            </p>
           ) : (
             ''
           )}
           {data && data.team.translator.length > 0 ? (
-            <p className={styles.team_info}>Перевод: {data.team.translator.join()}</p>
+            <p className={styles.team_info}>
+              Перевод: {data.team.translator.join()}
+            </p>
           ) : (
             ''
           )}
           {data && data.team.voice.length > 0 ? (
-            <p className={styles.team_info}>Озвучка: {data.team.voice.join(', ')}</p>
+            <p className={styles.team_info}>
+              Озвучка: {data.team.voice.join(', ')}
+            </p>
           ) : (
             ''
           )}
           {data && data.team.timing.length > 0 ? (
-            <p className={styles.team_info}>Тайминг: {data.team.timing.join(', ')}</p>
+            <p className={styles.team_info}>
+              Тайминг: {data.team.timing.join(', ')}
+            </p>
           ) : (
             ''
           )}
@@ -65,7 +75,7 @@ const OneAnime = () => {
               <ReactPlayer
                 className={styles.video_player}
                 key={item.created_timestamp}
-                url={`https://cache.libria.fun${item.hls.fhd}`}
+                url={`https://cache.libria.fun${item.hls.hd}`}
                 controls
                 width={800}
                 height={`auto`}
@@ -82,12 +92,12 @@ const OneAnime = () => {
                 <Link
                   className={styles.active_episode}
                   key={item.episode}
-                  to={`/anime/${code}/${item.episode}`}
+                  to={`/${code}/${item.episode}`}
                 >
                   {item.episode}
                 </Link>
               ) : (
-                <Link key={item.episode} to={`/anime/${code}/${item.episode}`}>
+                <Link key={item.episode} to={`/${code}/${item.episode}`}>
                   {item.episode}
                 </Link>
               ),

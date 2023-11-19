@@ -29,3 +29,32 @@
     }
   }
 }
+
+.pagination_container {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  display: grid;
+  grid-template-columns: repeat(25, 1fr);
+  gap: 10px;
+
+  a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background: $slate-900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    transition: background 0.1s ease;
+
+    &:hover {
+      background: $slate-950;
+    }
+
+    &.active {
+      background: $slate-950 !important;
+      border: 1px solid $sky-400-opacity;
+    }
+  }
+}

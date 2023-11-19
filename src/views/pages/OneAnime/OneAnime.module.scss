@@ -39,11 +39,9 @@
 .pagination {
   margin: 10px 0;
   padding: 20px;
-  width: 50%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  gap: 10px;
 
   a {
     width: 35px;

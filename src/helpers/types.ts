@@ -1,5 +1,5 @@
 export type QuerySettingsType = {
-  page?: Number | 1;
+  page?: Number | undefined;
   items_per_page?: Number | 10;
   filter?: String | null;
 };
