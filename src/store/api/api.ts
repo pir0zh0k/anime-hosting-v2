@@ -14,7 +14,8 @@ export const animeApi = createApi({
         `/title/updates?items_per_page=${settings.items_per_page}&page=${settings.page}&playlist_type=array`,
     }),
     getOneAnime: build.query({
-      query: (code: string) => `/title?code=${code}&playlist_type=array`,
+      query: (code: String | undefined) =>
+        `/title?code=${code}&playlist_type=array`,
     }),
   }),
 });

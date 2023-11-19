@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useGetOneAnimeQuery } from '../../../store';
 import styles from './OneAnime.module.scss';
 import ReactPlayer from 'react-player';
+import { PlayerList } from '../../../helpers/interfaces';
 
 const OneAnime = () => {
   const { code, episode } = useParams();
@@ -26,8 +27,8 @@ const OneAnime = () => {
       <div className={styles.player_wrapper}>
         <h1>Серия {episode}</h1>
         {data &&
-          data.player.list.map((item: Object) =>
-            item.episode == episode ? (
+          data.player.list.map((item: PlayerList) =>
+            item.episode === Number(episode) ? (
               <ReactPlayer
                 className={styles.video_player}
                 key={item.created_timestamp}
@@ -43,7 +44,7 @@ const OneAnime = () => {
 
         <div className={styles.pagination}>
           {data &&
-            data.player.list.map(item => (
+            data.player.list.map((item: PlayerList) => (
               <Link key={item.episode} to={`/serials/${code}/${item.episode}`}>
                 {item.episode}
               </Link>

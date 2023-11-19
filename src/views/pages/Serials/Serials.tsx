@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useGetUpdatesQuery } from '../../../store';
 import styles from './Serials.module.scss';
+import { OneAnimeInterface } from '../../../helpers/interfaces';
 
 const Serials = () => {
   const { data, isLoading } = useGetUpdatesQuery({
@@ -8,12 +9,12 @@ const Serials = () => {
     page: 1,
   });
 
-  console.log(data);
+  if (isLoading) return <div>Is Loading</div>;
 
   return (
     <div className={`container ${styles.serials__container}`}>
       {data &&
-        data.list.map(item => (
+        data.list.map((item: OneAnimeInterface) => (
           <Link
             to={`/serials/${item.code}/1`}
             className={styles.card}
