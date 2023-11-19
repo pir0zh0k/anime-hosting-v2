@@ -25,8 +25,7 @@ const Layout = () => {
             />
           </div>
           <div className={styles.menu}>
-            <Link to="/serials">Сериалы</Link>
-            <Link to="/films">Фильмы</Link>
+            <Link to="/anime">Аниме</Link>
             <Link to="/anounces">Анонсы</Link>
           </div>
         </div>

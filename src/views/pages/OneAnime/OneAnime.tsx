@@ -9,11 +9,11 @@ const OneAnime = () => {
   const { code, episode } = useParams();
   const { data, isLoading } = useGetOneAnimeQuery(code);
 
-  console.log(data);
-
   if (isLoading) {
     return <Preloader />;
   }
+
+  console.log(data);
 
   return (
     <div className={`container ${styles.player_container}`}>
@@ -23,7 +23,39 @@ const OneAnime = () => {
           src={`https://static-libria.weekstorm.one${data.posters.original.url}`}
           alt=""
         />
-        <p>{data.description}</p>
+        <div className={styles.info_text}>
+          <p>{data.description}</p>
+          {data.type.full_string ? (
+            <p className={styles.anime_type}>Тип: {data.type.full_string}</p>
+          ) : (
+            ''
+          )}
+          {data && data.team.decor.length > 0 ? (
+            <p className={styles.team_info}>Оформление: {data.team.decor.join()}</p>
+          ) : (
+            ''
+          )}
+          {data && data.team.editing.length > 0 ? (
+            <p className={styles.team_info}>Субтитры: {data.team.editing.join()}</p>
+          ) : (
+            ''
+          )}
+          {data && data.team.translator.length > 0 ? (
+            <p className={styles.team_info}>Перевод: {data.team.translator.join()}</p>
+          ) : (
+            ''
+          )}
+          {data && data.team.voice.length > 0 ? (
+            <p className={styles.team_info}>Озвучка: {data.team.voice.join(', ')}</p>
+          ) : (
+            ''
+          )}
+          {data && data.team.timing.length > 0 ? (
+            <p className={styles.team_info}>Тайминг: {data.team.timing.join(', ')}</p>
+          ) : (
+            ''
+          )}
+        </div>
       </div>
       <div className={styles.player_wrapper}>
         <h1>Серия {episode}</h1>
@@ -45,11 +77,21 @@ const OneAnime = () => {
 
         <div className={styles.pagination}>
           {data &&
-            data.player.list.map((item: PlayerList) => (
-              <Link key={item.episode} to={`/serials/${code}/${item.episode}`}>
-                {item.episode}
-              </Link>
-            ))}
+            data.player.list.map((item: PlayerList) =>
+              item.episode === Number(episode) ? (
+                <Link
+                  className={styles.active_episode}
+                  key={item.episode}
+                  to={`/anime/${code}/${item.episode}`}
+                >
+                  {item.episode}
+                </Link>
+              ) : (
+                <Link key={item.episode} to={`/anime/${code}/${item.episode}`}>
+                  {item.episode}
+                </Link>
+              ),
+            )}
         </div>
       </div>
     </div>
