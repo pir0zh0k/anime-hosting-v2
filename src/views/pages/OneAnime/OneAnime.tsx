@@ -84,8 +84,6 @@ const OneAnime = () => {
                 key={item.created_timestamp}
                 url={`https://cache.libria.fun${item.hls.hd}`}
                 controls
-                width={800}
-                height={`auto`}
               />
             ) : (
               ''

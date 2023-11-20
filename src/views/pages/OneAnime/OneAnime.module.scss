@@ -76,3 +76,69 @@
   background: $slate-950 !important;
   border: 1px solid $sky-400-opacity;
 }
+
+@media (max-width: 1200px) {
+  .info {
+    img {
+      height: 400px;
+    }
+  }
+}
+
+@media (max-width: 804px) {
+  .info {
+    flex-direction: column;
+    align-items: center;
+    img {
+      height: auto;
+      width: 400px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .info {
+    p {
+      margin: 0;
+      font-size: 12px;
+      max-width: 400px;
+    }
+
+    .anime_type {
+      font-size: 12px;
+      margin-top: 20px;
+    }
+
+    .team_info {
+      font-size: 12px;
+      margin-top: 20px;
+    }
+
+    .genres {
+      font-size: 12px;
+      margin-top: 20px;
+
+      span {
+        margin: 0 5px;
+        font-size: 10px;
+        padding: 5px 10px;
+        background: $sky-400-opacity;
+        border-radius: 15px;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .pagination {
+    grid-template-columns: repeat(10, 1fr);
+  }
+}
+
+@media (max-width: 479px) {
+  .pagination {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

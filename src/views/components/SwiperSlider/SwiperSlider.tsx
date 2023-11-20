@@ -15,11 +15,13 @@ const SwiperSlider = ({ updatesList }: SliderUpdates) => {
     clientHeight: 0,
     clientWidth: 0,
   });
-  const ref = useRef<any>();
+  const ref = useRef<ScreenSizeInterface | any | null>();
 
   const resizeHandler = () => {
-    const { clientHeight, clientWidth }: any = ref.current;
-    setScreenSize({ clientHeight, clientWidth });
+    if (ref.current) {
+      const { clientHeight, clientWidth } = ref.current;
+      setScreenSize({ clientHeight, clientWidth });
+    }
   };
 
   useEffect(() => {
