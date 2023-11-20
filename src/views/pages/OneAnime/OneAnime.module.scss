@@ -24,6 +24,19 @@
     font-size: 14px;
     margin-top: 20px;
   }
+
+  .genres {
+    font-size: 14px;
+    margin-top: 20px;
+
+    span {
+      margin: 0 5px;
+      padding: 5px 10px;
+      background: $sky-400-opacity;
+      border-radius: 15px;
+      font-weight: 500;
+    }
+  }
 }
 .player_wrapper {
   display: flex;

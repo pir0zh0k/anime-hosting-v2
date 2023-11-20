@@ -65,6 +65,13 @@ const OneAnime = () => {
           ) : (
             ''
           )}
+
+          <p className={styles.genres}>
+            Жанры:
+            {data.genres.map((item: any) => (
+              <span key={item}>{item}</span>
+            ))}
+          </p>
         </div>
       </div>
       <div className={styles.player_wrapper}>

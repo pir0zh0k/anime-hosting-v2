@@ -222,3 +222,8 @@ export interface Pagination {
   items_per_page: number;
   total_items: number;
 }
+
+export interface ScreenSizeInterface {
+  clientWidth: number;
+  clientHeight: number;
+}
