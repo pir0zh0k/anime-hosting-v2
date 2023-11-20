@@ -11,11 +11,14 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 
 const SwiperSlider = ({ updatesList }: SliderUpdates) => {
-  const [screenSize, setScreenSize] = useState<ScreenSizeInterface>({});
-  const ref = useRef();
+  const [screenSize, setScreenSize] = useState<ScreenSizeInterface>({
+    clientHeight: 0,
+    clientWidth: 0,
+  });
+  const ref = useRef<any>();
 
   const resizeHandler = () => {
-    const { clientHeight, clientWidth } = ref.current;
+    const { clientHeight, clientWidth }: any = ref.current;
     setScreenSize({ clientHeight, clientWidth });
   };
 
