@@ -1,4 +1,5 @@
-import { AnimeListRoot } from '../interfaces/animeList.interface';
+import { AnimeListRoot } from '../interfaces/updates.interface';
+import { ScheduleType } from '../types/schedule.type';
 import { QueryInterface } from './../interfaces/query.interface';
 import axios from 'axios';
 
@@ -18,6 +19,10 @@ class AnimeService {
         page ? `&page=${page}` : ''
       }`,
     );
+  }
+
+  async getSchedule() {
+    return axios.get<ScheduleType>(`${this.URL}/title/schedule`);
   }
 }
 

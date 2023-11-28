@@ -1,13 +1,10 @@
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { IntrinsicAttributes } from '../../../interfaces/animeList.interface';
+import { IntrinsicAttributes } from '../../../interfaces/updates.interface';
 
 export const Slider = ({ animeList }: IntrinsicAttributes) => {
-  const swiper = useSwiper();
-
-  console.log(animeList);
   return (
     <div className="py-5">
       <Swiper
@@ -31,7 +28,10 @@ export const Slider = ({ animeList }: IntrinsicAttributes) => {
         }}
       >
         {animeList.map(title => (
-          <SwiperSlide key={title.id}>
+          <SwiperSlide
+            key={title.id}
+            className="border-2 border-slate-500 hover:border-red-500"
+          >
             <img
               src={`https://static-libria.weekstorm.one/${title.posters.medium.url}`}
               alt=""
