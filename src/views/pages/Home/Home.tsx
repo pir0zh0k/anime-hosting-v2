@@ -1,21 +1,12 @@
-import SwiperSlider from '../../components/SwiperSlider/SwiperSlider';
+import { useUpdates } from '../../../hooks/useUpdates';
+import { Slider } from '../../components/Slider/Slider';
 
-import { useGetChangesQuery } from '../../../store/';
-import Preloader from '../../components/Preloader/Preloader';
-
-const Home = () => {
-  const { data, isLoading } = useGetChangesQuery({
-    items_per_page: 10,
-    page: 1,
-  });
-
-  if (isLoading) return <Preloader />;
+export const Home = () => {
+  const { data, isLoading, error } = useUpdates({ limit: 50 });
 
   return (
     <div>
-      <SwiperSlider updatesList={data && data.list} />
+      {data && <Slider animeList={data?.list} />}
     </div>
   );
 };
-
-export default Home;

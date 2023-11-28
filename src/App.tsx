@@ -1,9 +1,6 @@
-import { Routes, Route } from 'react-router-dom';
-import Layout from './views/components/Layout/Layout';
-import Home from './views/pages/Home/Home';
-import Anime from './views/pages/Anime/Anime';
-import Anounces from './views/pages/Anounces/Anounces';
-import OneAnime from './views/pages/OneAnime/OneAnime';
+import { Route, Routes } from 'react-router-dom';
+import { Layout } from './views/components';
+import { Anime, Franchises, Genres, Home } from './views/pages';
 
 function App() {
   return (
@@ -11,10 +8,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} index />
-          <Route path="/:code/:episode" element={<OneAnime />} />
-          <Route path="/anime/:page" element={<Anime />} />
-          <Route path="/anounces" element={<Anounces />} />
-          {/* <Route path="/anime/" element={<OneAnime />} /> */}
+          <Route path="/genres" element={<Genres />} />
+          <Route path="/franchises" element={<Franchises />} />
+          <Route path="/anime" element={<Anime />} />
         </Route>
       </Routes>
     </>

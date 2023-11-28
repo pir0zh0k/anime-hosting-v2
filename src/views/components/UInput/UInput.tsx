@@ -1,25 +1,18 @@
-import { ChangeEventHandler } from 'react';
-import styles from './UInput.module.scss';
+import { UInputInterface } from "../../../interfaces/uinput.interface";
 
-type PropsType = {
-    value: string|number,
-    placeholder: string,
-    type: string,
-    handleSearch: ChangeEventHandler<HTMLInputElement>
-}
 
-const SearchInput = ({ value, placeholder, type, handleSearch }: PropsType) => {
+export const UInput = ({
+  placeholder,
+  type = 'string',
+  value,
+  onChange,
+}: UInputInterface) => {
   return (
-    <div>
-      <input
-        type={type}
-        className={styles.input}
-        value={value}
-        onChange={handleSearch}
-        placeholder={placeholder}
-      />
-    </div>
+    <input
+      type={type}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+    />
   );
 };
-
-export default SearchInput;
