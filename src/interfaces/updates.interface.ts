@@ -3,10 +3,6 @@ export interface AnimeListRoot {
   pagination: Pagination;
 }
 
-export type IntrinsicAttributes = {
-  animeList: Anime[];
-};
-
 export interface Anime {
   id: number;
   code: string;

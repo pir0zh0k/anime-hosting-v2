@@ -2,9 +2,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { IntrinsicAttributes } from '../../../interfaces/updates.interface';
+import { Anime } from '../../../interfaces/updates.interface';
 
-export const Slider = ({ animeList }: IntrinsicAttributes) => {
+interface SliderProps {
+  animeList: Anime[];
+}
+
+export const Slider = ({ animeList }: SliderProps) => {
   return (
     <div className="py-5">
       <Swiper
