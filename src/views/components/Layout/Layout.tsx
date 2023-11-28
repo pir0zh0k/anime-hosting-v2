@@ -13,7 +13,7 @@ export const Layout = () => {
   };
 
   return (
-    <div className="bg-slate-900 h-screen text-slate-50">
+    <div className="bg-slate-900 h-full text-slate-50">
       <header className="w-full bg-slate-950 text-slate-50 sticky top-0 left-0 z-50">
         <div className="container py-5 flex items-center">
           <div className="flex items-center">

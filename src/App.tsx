@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './views/components';
-import { Anime, Franchises, Genres, Home } from './views/pages';
+import { AnimePage, Franchises, Genres, Home } from './views/pages';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
           <Route path="/" element={<Home />} index />
           <Route path="/genres" element={<Genres />} />
           <Route path="/franchises" element={<Franchises />} />
-          <Route path="/anime" element={<Anime />} />
+          <Route path="/anime" element={<AnimePage />} />
         </Route>
       </Routes>
     </>
