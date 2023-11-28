@@ -33,7 +33,7 @@ export const Layout = () => {
                 />
               </svg>
             </div>
-            <div className="ml-5 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 [-moz-text-shadow:0_0_10px_#a855f7] [-webkit-text-shadow:0_0_10px_#a855f7] [text-shadow:0_0_10px_#a855f7]">
+            <div className="ml-5 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">
               <NavLink to="/" onClick={hideMenu}>
                 AniQuick
               </NavLink>
@@ -46,36 +46,25 @@ export const Layout = () => {
         className={`h-full fixed top-0 left-0 bg-slate-950 z-40 transition-transform duration-700 lg:w-[50%] w-full pt-20 text-slate-50
         ${showMenu ? 'translate-x-0' : 'translate-x-[-100%]'}`}
       >
-        <img
-          src="/public/menu_bg.png"
-          alt=""
-          className="absolute hidden lg:block lg:h-auto h-96 left-0 bottom-0 brightness-75 blur-[0.04rem]"
-        />
         <div className="h-full flex flex-col text-xl">
-          <NavLink
-            onClick={hideMenu}
-            to="/anime"
-            className="hover:bg-slate-900 px-8 py-5 lg:text-end"
-          >
+          <NavLink onClick={hideMenu} to="/anime" className="menu-link">
             Аниме
           </NavLink>
-          <NavLink
-            onClick={hideMenu}
-            to="/genres"
-            className="hover:bg-slate-900 px-8 py-5 lg:text-end"
-          >
+          <NavLink onClick={hideMenu} to="/genres" className="menu-link">
             Жанры
           </NavLink>
-          <NavLink
-            onClick={hideMenu}
-            to="/franchises"
-            className="hover:bg-slate-900 px-8 py-5 lg:text-end"
-          >
+          <NavLink onClick={hideMenu} to="/franchises" className="menu-link">
             Франшизы
           </NavLink>
         </div>
       </nav>
-      <div className={`container ${showMenu ? 'blur-sm' : 'filter-none'}`}>
+      <div
+        className={`container ${
+          showMenu
+            ? 'blur-sm pointer-events-none'
+            : 'filter-none pointer-events-auto'
+        }`}
+      >
         <Outlet />
       </div>
     </div>
