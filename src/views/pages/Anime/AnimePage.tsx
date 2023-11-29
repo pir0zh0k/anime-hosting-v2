@@ -1,6 +1,6 @@
 import { Pagination } from '@mui/material';
 import { useUpdates } from '../../../hooks/useUpdates';
-import { Anime, AnimeListRoot } from '../../../interfaces/updates.interface';
+import { Anime } from '../../../interfaces/updates.interface';
 import { AnimeCard, Loader } from '../../components';
 import { useState, useEffect } from 'react';
 
@@ -16,9 +16,10 @@ export const AnimePage = () => {
     page: page,
   });
 
-  console.log(animeList);
+  if (isLoading) return <Loader />;
 
   const handlePagination = (e: React.ChangeEvent<unknown>, value: number) => {
+    console.log(e);
     setPage(value);
   };
 

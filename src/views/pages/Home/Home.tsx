@@ -1,11 +1,13 @@
 import { useSchedule } from '../../../hooks/useSchedule';
 import { useUpdates } from '../../../hooks/useUpdates';
-import { Slider } from '../../components/';
+import { Loader, Slider } from '../../components/';
 import { TitlesSchedule } from '../../components/';
 
 export const Home = () => {
-  const { data: updates, isLoading, error } = useUpdates({ limit: 10 });
+  const { data: updates, isLoading } = useUpdates({ limit: 10 });
   const { data: schedule } = useSchedule();
+
+  if (isLoading) return <Loader />;
 
   return (
     <div className="bg-slate-900">
