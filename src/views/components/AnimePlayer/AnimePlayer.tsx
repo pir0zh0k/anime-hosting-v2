@@ -4,6 +4,7 @@ import { ControlsVideo } from './VideoControls/ControlsVideo';
 import { AnimePlayerProps } from '../../../types/animePlayer.type';
 import { useState, useRef } from 'react';
 import { OnProgressProps } from 'react-player/base';
+import screenfull from 'screenfull';
 
 export const AnimePlayer = ({
   episode,
@@ -19,6 +20,7 @@ export const AnimePlayer = ({
   });
 
   const refPlayer = useRef<ReactPlayer | null>(null);
+  const refPlayerWrapper = useRef<HTMLDivElement>(null);
 
   function getDuration(duration: number) {
     setPlayerState({ ...playerState, end: duration });
@@ -43,12 +45,16 @@ export const AnimePlayer = ({
     if (refPlayer.current) refPlayer.current.seekTo(Number(e.target.value));
   };
 
+  const toggleFullScreen = () => {
+    if (refPlayerWrapper.current) screenfull.toggle(refPlayerWrapper.current);
+  };
+
   console.log(playerState);
 
   return (
     <div className="my-5">
       <h1 className="text-3xl text-center">Серия {episode}</h1>
-      <div className="my-5 relative">
+      <div ref={refPlayerWrapper} className="my-5 relative">
         <ControlsVideo
           episode={episode}
           episodes={episodes}
@@ -57,6 +63,7 @@ export const AnimePlayer = ({
           playerState={playerState}
           handleVolume={handleVolume}
           changeProgress={changeProgress}
+          toggleFullscreen={toggleFullScreen}
         />
         {episodes?.map(ep =>
           ep.episode == Number(episode) ? (

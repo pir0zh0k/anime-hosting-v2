@@ -13,6 +13,7 @@ export type PlayerControllerType = {
   togglePlay?: (e: React.MouseEvent<HTMLDivElement>) => void;
   handleVolume?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   changeProgress?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  toggleFullscreen?: () => void;
   playerState?: {
     playing?: boolean;
     duration?: number;
