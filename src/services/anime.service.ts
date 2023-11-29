@@ -1,6 +1,9 @@
-import { AnimeListRoot } from '../interfaces/updates.interface';
+import { Anime, AnimeListRoot } from '../interfaces/updates.interface';
 import { ScheduleType } from '../types/schedule.type';
-import { QueryInterface } from './../interfaces/query.interface';
+import {
+  QueryInterface,
+  QueryTitleProps,
+} from './../interfaces/query.interface';
 import axios from 'axios';
 
 class AnimeService {
@@ -23,6 +26,12 @@ class AnimeService {
 
   async getSchedule() {
     return axios.get<ScheduleType>(`${this.URL}/title/schedule`);
+  }
+
+  async getTitle({ code, playlist_type = 'array' }: QueryTitleProps) {
+    return axios.get<Anime>(
+      `${this.URL}/title?code=${code}&playlist_type=${playlist_type}`,
+    );
   }
 }
 
