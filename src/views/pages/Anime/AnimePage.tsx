@@ -1,23 +1,34 @@
 import { Pagination } from '@mui/material';
 import { useUpdates } from '../../../hooks/useUpdates';
 import { Anime, AnimeListRoot } from '../../../interfaces/updates.interface';
-import { AnimeCard } from '../../components';
-import { useState, useLayoutEffect } from 'react';
+import { AnimeCard, Loader } from '../../components';
+import { useState, useEffect } from 'react';
 
 export const AnimePage = () => {
   const [page, setPage] = useState<number>(1);
-  const { data } = useUpdates({ items_per_page: 30, page: page });
+  const {
+    data: animeList,
+    refetch,
+    isLoading,
+    isFetching,
+  } = useUpdates({
+    items_per_page: 30,
+    page: page,
+  });
 
-  const [animeList, setAnimeList] = useState<AnimeListRoot>(data);
-
-  useLayoutEffect(() => {
-    data && setAnimeList(data);
-  }, []);
+  console.log(animeList);
 
   const handlePagination = (e: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
 
+  useEffect(() => {
+    refetch();
+  }, [page, refetch]);
+
+  if (isFetching) {
+    return <Loader />;
+  }
   return (
     <>
       <div className="anime-grid-container py-5">

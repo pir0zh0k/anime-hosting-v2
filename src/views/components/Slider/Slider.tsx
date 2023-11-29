@@ -19,7 +19,7 @@ export const Slider = ({ animeList }: SliderProps) => {
         loop
         breakpoints={{
           320: {
-            slidesPerView: 1,
+            slidesPerView: 2,
           },
           640: {
             slidesPerView: 2,
